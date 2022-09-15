@@ -37,6 +37,7 @@
 
 #agg {
     box-sizing: border-box;
+    justify-content: center;
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -46,9 +47,16 @@
     position: absolute;
     width: 280px;
     height: 67px;
-    left: 579px;
-    top: 554px;
+    left: 561px;
+    top: 500px;
     /* Dark blue/dark-blue-300 */
     border: 1px solid #0A3871;
     border-radius: 24px;
+    /*text*/
+    font-family: inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0A3871;
 }
