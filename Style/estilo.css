@@ -1,0 +1,54 @@
+#logoA {
+    flex: none;
+    height: 48px;
+    width: 120px;
+    order: 0;
+    flex-grow: 0;
+}
+
+#inic {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    position: absolute;
+    width: 317px;
+    height: 114px;
+    left: 561px;
+    top: 402px;
+    background: #0a3871;
+    border-radius: 24px;
+    align-items: center;
+    color: white;
+    width: 269px;
+    height: 66px;
+    font-family: inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#agg {
+    box-sizing: border-box;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 8px;
+    position: absolute;
+    width: 280px;
+    height: 67px;
+    left: 579px;
+    top: 554px;
+    /* Dark blue/dark-blue-300 */
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+}
