@@ -1,21 +1,13 @@
 #dibujo {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 #letras {
     display: flex;
     justify-content: center;
-    padding-top: 5px;
-}
-
-#logoA {
-    position: absolute;
-    width: 31.09px;
-    height: 48px;
-    left: 84px;
-    top: 40px;
+    padding-top: 0px;
 }
 
 #botones {
