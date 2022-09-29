@@ -66,12 +66,19 @@ document.addEventListener('click', e => {
 //funcion a ejecutar en caso que el usuario deseé agregar una palabra al juegp
 function agregarPal() {
     var palabraTomada = document.getElementById("AggInput").value;
-    console.log(palabraTomada);
     if (palabraTomada) {
         if (palabraTomada.length > 8) {
             Swal.fire({
                 title: 'Error',
                 text: 'por favor ingrese una palabra con un máximo de 8 letras ',
+                icon: 'error',
+                confirmbuttontext: 'cool'
+            });
+        }
+        if (palabraTomada.length < 4) {
+            Swal.fire({
+                title: 'Error',
+                text: 'por favor ingrese una palabra con un minimo de 4 letras ',
                 icon: 'error',
                 confirmbuttontext: 'cool'
             });
@@ -98,12 +105,12 @@ function agregarPal() {
 
 var letrasError = [];
 var letra2;
-var aciertos = 0
+var aciertos = 0;
 var cancel = false;
 var letrapresionada;
 var intentos = 9;
-var error = 1
-    //escaner para las teclas presionadas 
+var error = 1;
+//escaner para las teclas presionadas 
 
 
 function teclado() {
@@ -120,14 +127,12 @@ function teclado() {
             evt.preventDefault();
             return;
         }
-        console.log(letrapresionada);
         letrapresionada = evt.key;
-        console.log(letrapresionada)
         if (letrascorrecta.length < cantidad) {
             ver();
         }
         if (letrascorrecta.length == cantidad) {
-            evt.preventDefault()
+            evt.preventDefault();
         }
     });
 }
@@ -139,13 +144,9 @@ var letrascorrecta = [];
 
 
 function ver() {
-    var Boolean = false
+    var Boolean = false;
     var inten = document.getElementById('inten');
     inten.innerHTML = intentos;
-
-
-    console.log(cantidad)
-
     if (cancel != true) {
 
         for (numero = 0; numero < cantidad; numero++) {
@@ -155,27 +156,23 @@ function ver() {
 
                 var pos = document.getElementById(clase);
                 pos.innerHTML = letra;
-                Boolean = true
+                Boolean = true;
                 if (!letrasError.includes(letrapresionada)) {
-                    aciertos++
+                    aciertos++;
                     letrascorrecta.push(letra);
                 }
-                console.log("aciertos " + aciertos);
-                console.log("cantidad " + cantidad)
                 if (cantidad === aciertos) {
                     cancel == true;
                 }
             } else if (letrapresionada !== letra) {
-                letra2 = letrapresionada
+                letra2 = letrapresionada;
             }
         }
         if (letrapresionada != null) {
             if (letrasError.includes(letra2)) {
-                Boolean = true
+                Boolean = true;
             } else {
                 letrasError.push(letra2);
-                console.log(letrasError);
-                console.log(letrasError.length);
             }
             if (Boolean === false) {
                 document.getElementById("audio").play();
@@ -187,7 +184,6 @@ function ver() {
                     error++;
                     intentos--;
                     inten.innerHTML = intentos;
-                    console.log(error)
                 } else if (error == 2) {
 
                     crearBase(90, 50, 430, 3);
@@ -197,21 +193,21 @@ function ver() {
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 3) {
-                    crearBase(305, 50, 3, 100)
+                    crearBase(305, 50, 3, 100);
                     err = document.getElementById('c');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
                     error++;
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 4) {
-                    circulo(306, 188, 40)
+                    circulo(306, 188, 40);
                     err = document.getElementById('d');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
                     error++;
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 5) {
-                    crearBase(305, 228, 3, 140)
+                    crearBase(305, 228, 3, 140);
                     err = document.getElementById('e');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
                     error++;
@@ -221,30 +217,29 @@ function ver() {
                     linea(306, 261, 356, 330);
                     err = document.getElementById('f');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
-                    error++
+                    error++;
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 7) {
-                    linea(306, 261, 254, 330)
+                    linea(306, 261, 254, 330);
                     err = document.getElementById('g');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
-                    error++
+                    error++;
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 8) {
                     linea(306, 368, 356, 438);
                     err = document.getElementById('h');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
-                    error++
+                    error++;
                     intentos--;
                     inten.innerHTML = intentos;
                 } else if (error == 9) {
-                    linea(306, 368, 254, 438)
+                    linea(306, 368, 254, 438);
                     err = document.getElementById('i');
                     err = err.innerHTML = letrasError.includes(letrapresionada) ? letrapresionada : "";
-                    console.log("has perdido :(");
-                    puntero.font = "30pt arial"
-                    puntero.fillStyle = "black"
+                    puntero.font = "30pt arial";
+                    puntero.fillStyle = "red";
                     puntero.fillText("!Has perdido :(", 100, 100);
                     cancel = true;
                     error++;
@@ -255,9 +250,8 @@ function ver() {
             }
         }
         if (cantidad == letrascorrecta.length) {
-            console.log("has ganado")
-            puntero.font = "30pt arial"
-            puntero.fillStyle = "black"
+            puntero.font = "30pt arial";
+            puntero.fillStyle = "green";
             puntero.fillText("!Has Ganado!", 100, 100);
             cancel = true;
             return;
@@ -270,13 +264,13 @@ function ver() {
 
 
 //variables globales para la funcion iniciar 
-var palabras = ["laptop", "celular", "cuaderno", "estufa", "cereal", "lamina", "telefono"];
+var palabras = ["laptop", "celular", "cuaderno", "estufa", "cereal", "telefono"];
 var NewWord = [];
-var selec
-var cantidad
+var selec;
+var cantidad;
 var letra;
 var cantNueva;
-var selecNueva
+var selecNueva;
 
 function iniciar() {
 
@@ -287,7 +281,6 @@ function iniciar() {
         selec = palabras[Math.floor(Math.random() * palabras.length)];
         cantidad = selec.length; //se pasa la cantidad de letras de la palabra a la variable cantidad 
     }
-    console.log(selec)
     for (var numero = 0; numero < cantidad; numero++) { //for pendiente de utilizar 
         // DibLetra(x + 25, letra)
 
@@ -306,7 +299,7 @@ function agregarEsp() {
 
     for (var i = 0; i < 1; i++) { //se utiliza una etiqueta table de HTML para generar los espacios necesarios
         var filaActual = document.getElementById("areaLetras").insertRow(i);
-        filaActual.setAttribute("id", "col") //se inserta unicamente una fila 
+        filaActual.setAttribute("id", "col"); //se inserta unicamente una fila 
         for (var j = 0; j < columnas; j++) { // se insertaran las filas que se indiquen al momento de seleccionar la palabra
             var celda = filaActual.insertCell(j);
             celda.setAttribute('id', j); //se inserta un id a cada columna para identificar en que posicion ira la letra
@@ -315,13 +308,13 @@ function agregarEsp() {
 }
 
 //se recargara la pagina siempre que se ahaga click en el logo
-const refresh = document.getElementById("recargar")
+const refresh = document.getElementById("recargar");
 refresh.addEventListener('click', _ => {
     location.reload();
     document.getElementById("AggInput").value = "";
 });
 
-const refresh2 = document.getElementById("nuevoJue")
+const refresh2 = document.getElementById("nuevoJue");
 refresh2.addEventListener('click', _ => {
 
     var columnas = cantidad;
@@ -332,12 +325,12 @@ refresh2.addEventListener('click', _ => {
         document.getElementById('col').remove();
     }
     aciertos = 0;
-    intentos = 9
-    error = 1
+    intentos = 9;
+    error = 1;
     puntero.fillStyle = "white";
     puntero.fillRect(0, 0, 600, 450);
-    letra = null
-    letrapresionada = null
+    letra = null;
+    letrapresionada = null;
 
     document.getElementById('a').innerHTML = "";
     document.getElementById('b').innerHTML = "";
@@ -363,9 +356,8 @@ rend.addEventListener('click', _ => {
     linea(306, 261, 254, 330);
     linea(306, 368, 356, 438);
     linea(306, 368, 254, 438);
-    console.log("has perdido :(");
-    puntero.font = "30pt arial"
-    puntero.fillStyle = "black"
+    puntero.font = "30pt arial";
+    puntero.fillStyle = "red";
     puntero.fillText("!Has perdido :(", 100, 100);
     cancel = true;
 
@@ -378,10 +370,3 @@ crearBase(70, 450, 450, 3);
 
 
 //214+35
-
-function pos(evento) {
-    var x = evento.pageX - dibujo.offsetLeft;
-    var y = evento.pageY - dibujo.offsetTop;
-    console.log(x + " " + y);
-}
-dibujo.onclick = pos;
