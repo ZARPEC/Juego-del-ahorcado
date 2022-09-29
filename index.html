@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <audio id="audio" controls style="display: none;"><source src="./assets/Error.mp3" type="audio/mpeg"/>
+    </audio>
     <div class="logoA">
         <button class="logo" id="recargar">
         <svg width="32" height="48"  viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +19,6 @@
         </svg>
     </button>
     </div>
-
     <!--Pantalla inicial-->
     <!----------------------------------------------------------------------------------------------------------------------------->
     <div class="botonesIni">
@@ -29,8 +30,28 @@
     <!------------------------------------------------------------------------------------------------------------------------->
     <div class="juego">
         <div id="dibujo">
-            <canvas id="areaDibujo" width="600px" height="475px">
+            <canvas id="areaDibujo" width="600px" height="475px">Navegador incompatible :(  Utiliza otro navegador
         </canvas>
+            <table id="intentos">
+                <th>intentos</th>
+                <tr>
+                    <td id="inten"></td>
+                </tr>
+            </table>
+            <table id="errores">
+                <th colspan="9">letras erroneas</th>
+                <tr>
+                    <td valign="bottom" id="a"></td>
+                    <td valign="bottom" id="b"></td>
+                    <td valign="bottom" id="c"></td>
+                    <td valign="bottom" id="d"></td>
+                    <td valign="bottom" id="e"></td>
+                    <td valign="bottom" id="f"></td>
+                    <td valign="bottom" id="g"></td>
+                    <td valign="bottom" id="h"></td>
+                    <td valign="bottom" id="i"></td>
+                </tr>
+            </table>
         </div>
         <div id="letras">
             <table id="areaLetras">
@@ -39,7 +60,7 @@
             </table>
         </div>
         <div id="botones">
-            <button id="boton" type="button">Nuevo juego</button>
+            <button id="nuevoJue" type="button" onclick="iniciar();">Nuevo juego</button>
             <button id="rend" type="button">Rendirse</button>
         </div>
     </div>
@@ -66,6 +87,7 @@
     </div>
 
     <script src="js/Script.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
