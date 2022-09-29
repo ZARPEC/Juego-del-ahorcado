@@ -3,6 +3,9 @@
     overflow-x: hidden;
 }
 
+
+/* estilo para la pantalla principal*/
+
 .logo {
     width: 100px;
     display: flex;
@@ -113,10 +116,12 @@
 
 #addWord {
     visibility: hidden;
+    transition: all 0.001s ease 0s;
 }
 
-#addWord #active {
+#active {
     visibility: visible;
+    transition: all 0.001s ease 0s;
 }
 
 
@@ -142,7 +147,7 @@
     padding: 20px;
 }
 
-#boton {
+#nuevoJue {
     color: white;
     padding: 24px;
     width: 332px;
@@ -154,7 +159,7 @@
     transition: all 0.3s ease 0s;
 }
 
-#boton:hover {
+#nuevoJue:hover {
     transform: translateY(-5px);
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -162,7 +167,7 @@
     transform: translateY(-7px);
 }
 
-#boton:active {
+#nuevoJue:active {
     transform: translateY(-1px)
 }
 
@@ -171,12 +176,10 @@
     width: 332px;
     height: 67px;
     background-color: white;
-    /* Dark blue/dark-blue-300 */
     border: 1px solid #0A3871;
     border-radius: 24px;
     margin: 5px;
     transition: all 0.3s ease 0s;
-    /* Inside auto layout */
 }
 
 #rend:hover {
@@ -203,8 +206,60 @@ td {
     width: 500px;
 }
 
+#errores {
+    position: absolute;
+    left: 70%;
+    table-layout: fixed;
+    bottom: 300px;
+    font-size: 30px;
+    width: 300px;
+    height: 100px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    z-index: 100;
+    align-self: center;
+    text-align: center;
+    padding: 0px;
+}
+
+#errores td {
+    font-size: 20px;
+    border-bottom: solid black 1px;
+    width: 40px;
+    word-wrap: break-word;
+    height: 10px;
+}
+
+#intentos {
+    position: absolute;
+    left: 70%;
+    table-layout: fixed;
+    top: 200px;
+    font-size: 30px;
+    width: 300px;
+    height: 100px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    z-index: 100;
+    align-self: center;
+    text-align: center;
+    padding: 0px;
+}
+
+#intentos td {
+    border: none;
+    width: 20px;
+    word-wrap: break-word;
+    height: 10px;
+}
+
 
 /*Estilo de pantalla de agregar palabras */
+
+#active {
+    visibility: visible;
+    transition: all 0.001s ease 0s;
+}
 
 #botonesAgPal {
     display: flex;
