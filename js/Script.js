@@ -342,6 +342,7 @@ refresh2.addEventListener('click', _ => {
     document.getElementById('h').innerHTML = "";
     document.getElementById('i').innerHTML = "";
     letrasError = [];
+    cancel = false
     iniciar();
 });
 
